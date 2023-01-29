@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context";
+import '../App.css'
+import logo from '../logo.png'
 
-const Search = ()=>{
-    const { query, setQuery} = useContext(AppContext);
+const Search = () => {
+    const { query, setQuery, setPage } = useContext(AppContext);
     return (
-        <form action="#" onSubmit={e=> e.preventDefault()} >
-            <input type="text" value={query} onChange={e=>{setQuery(e.target.value)}} />
-        </form>
+
+        <section className="search">
+            <img src={logo} alt="logo" />
+            <form action="#" onSubmit={e => e.preventDefault()} >
+                <input type="text" onChange={e => { setQuery(e.target.value); setPage("1")}}  placeholder="Search your movie"/>
+            </form>
+        </section>
     )
 }
 

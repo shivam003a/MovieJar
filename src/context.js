@@ -10,15 +10,21 @@ const AppProvider = ({ children }) => {
     const [movieList, setMovieList] = useState([]);
     const [isError, setIsError] = useState({ show: "false", msg: "" })
     const [query, setQuery] = useState('Iron Man');
+    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(1);
 
     const getData = async (url) => {
         try {
-            const res = await fetch(url)
+            const res = await fetch(url,{
+                referrerPolicy : "unsafe-url"
+            })
             const data = await res.json();
             console.log(data);
             if (data.Response === "True") {
                 setIsLoading(false);
                 setMovieList(data.Search);
+                setTotalPage(parseInt(data.totalResults/10)+1);
+                console.log(url)
             }
             else {
                 setIsError({
@@ -33,14 +39,14 @@ const AppProvider = ({ children }) => {
 
     useEffect(() => {
         let timer = setTimeout(()=>{
-            getData(`${API}&s=${query}`);
+            getData(`${API}&s=${query}&page=${page}`);
         },500)
 
         return ()=> clearTimeout(timer);
-    }, [query])
+    }, [query, page])
 
     return (
-        <AppContext.Provider value={{ movieList, query, setQuery }}>
+        <AppContext.Provider value={{ movieList, query, setQuery, page, setPage, totalPage }}>
             {children}
         </AppContext.Provider>
     )
