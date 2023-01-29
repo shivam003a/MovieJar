@@ -210,6 +210,9 @@
     .right{
         margin-left: unset;
     }
+    .title{
+        text-align: center;
+    }
     .general-info{
         display: flex;
         flex-direction: column;

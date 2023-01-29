@@ -5,7 +5,7 @@ const SingleMovie = () => {
     const [singleMovie, setSingleMovie] = useState("");
     const { Title, Plot, Rated, Country, Genre, Actors, Director, Language, Metascore, Poster, Released, Runtime, Type, Year, imdbRating, Awards, Writer, BoxOffice, Ratings } = singleMovie
     const { id } = useParams();
-    const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_KEY}&i=${id}`
+    const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_KEY}&i=${id}`
 
     const getDatabyId = async () => {
         try {
@@ -41,8 +41,8 @@ const SingleMovie = () => {
                     </div>
                     <span className="plot">{Plot}</span>
                     <div className="rating">
-                        <span>Imdb {imdbRating}</span>
-                        <span>Metascore {Metascore}</span>
+                        <span>Imdb - {imdbRating}</span>
+                        <span>Metascore - {Metascore}</span>
                     </div>
                     <span><strong>Year of Release &nbsp;: &nbsp;&nbsp; </strong>{Released}</span>
                     <span><strong>Country of Origin &nbsp;: &nbsp;&nbsp; </strong>{Country}</span>
