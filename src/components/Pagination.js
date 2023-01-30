@@ -8,12 +8,20 @@ const Pagination = () => {
         if (page < totalPage) {
             setPage(parseInt(page) + 1);
         }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
     }
 
     const getPrevPage = () => {
         if (page > 1) {
             setPage(parseInt(page) - 1);
         }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
     }
 
     return (

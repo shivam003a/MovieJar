@@ -21,7 +21,7 @@
 
 .search::before {
     content: '';
-    background: url('https://picsum.photos/2000/3000') no-repeat center center/cover;
+    background: url('https://picsum.photos/800/800') no-repeat center center/cover;
     position: absolute;
     opacity: 0.3;
     top: 0px;
@@ -132,14 +132,14 @@
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     height: 100vh;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 24px 2%;
     color: white;
 }
 .single-movie::before{
     content: '';
-    background: url('https://picsum.photos/200/300') no-repeat center center/cover;
+    background: url('https://picsum.photos/600/300') no-repeat center center/cover;
     position: absolute;
     top: 0;
     left: 0;
