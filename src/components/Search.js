@@ -4,7 +4,7 @@ import '../App.css'
 import logo from '../logo.png'
 
 const Search = () => {
-    const { query, setQuery, setPage, isError } = useContext(AppContext);
+    const { setQuery, setPage, isError } = useContext(AppContext);
     return (
 
         <section className="search">

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import logo from '../logo.png';
 
 const SingleMovie = () => {
     const [singleMovie, setSingleMovie] = useState("");
+    const [loading, setLoading] = useState("true");
     const { Title, Plot, Rated, Country, Genre, Actors, Director, Language, Metascore, Poster, Released, Runtime, Type, Year, imdbRating, Awards, Writer, BoxOffice, Ratings } = singleMovie
     const { id } = useParams();
     const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_KEY}&i=${id}`
@@ -12,6 +14,7 @@ const SingleMovie = () => {
             const res = await fetch(API);
             const data = await res.json();
             if (data.Response === "True") {
+                setLoading("false")
                 setSingleMovie(data);
             }
         } catch (err) {
@@ -25,6 +28,11 @@ const SingleMovie = () => {
     return (
         <>
             <section className="single-movie">
+
+                <div className="splash" style={loading=="true"?{} : {display: "none"}}>
+                    <img src={logo} />
+                </div>
+
                 <div style={{
                     content: "",
                     display: "block",
@@ -40,6 +48,7 @@ const SingleMovie = () => {
                     left: 0,
                     zIndex: -2
                 }} />
+
                 <div className="left">
                     <img src={Poster} alt={Title} />
                 </div>
