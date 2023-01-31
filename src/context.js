@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 const AppContext = createContext();
 const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_KEY}`
 
-const sampleMovie = ["Iron Man", "Hulk", "Captain America", "Harry Potter", "Fast Fourious", "James Bond","Spider Man","Transformers","Batman", "Ice Age","Batman", "Toy Story","Avengers","Die Hard", "Resident Evil","Alien","Jack Ryan","Rocky"];
+const sampleMovie = ["Iron Man", "Hulk", "Captain America", "Harry Potter", "Fast Furious", "James Bond","Spider Man","Transformers","Batman", "Ice Age","Batman", "Toy Story","Avengers","Die Hard", "Resident Evil","Alien","Rocky"];
 
 
 const AppProvider = ({ children }) => {
