@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../context";
 
 const Pagination = () => {
-    const { movieList, totalPage, page, setPage } = useContext(AppContext);
+    const { movieList, totalPage, page, setPage, isError } = useContext(AppContext);
 
     const getNextPage = () => {
         if (page < totalPage) {
@@ -26,7 +26,7 @@ const Pagination = () => {
 
     return (
         <>
-            <div className="pagination">
+            <div className="pagination" style={isError.show == "true" ? { display: "none" } : {}}>
                 <button onClick={getPrevPage}>Prev</button>
                 <span>{page} /{parseInt(totalPage)}</span>
                 <button onClick={getNextPage}>Next</button>

@@ -4,7 +4,7 @@ import '../App.css'
 import logo from '../logo.png'
 
 const Search = () => {
-    const { query, setQuery, setPage } = useContext(AppContext);
+    const { query, setQuery, setPage, isError } = useContext(AppContext);
     return (
 
         <section className="search">
@@ -12,6 +12,7 @@ const Search = () => {
             <form action="#" onSubmit={e => e.preventDefault()} >
                 <input type="text" onChange={e => { setQuery(e.target.value); setPage("1")}}  placeholder="Search your movie"/>
             </form>
+            <span style={isError.show=="true"?{display:"block"}:{display:"none"}}>{isError.msg}</span>
         </section>
     )
 }

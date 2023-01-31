@@ -4,10 +4,11 @@ import { AppContext } from "../context";
 import notFound from '../notFound.jpg';
 
 const Movie = () => {
-    const { movieList } = useContext(AppContext);
+    const { movieList, isError } = useContext(AppContext);
     return (
         <>
             <section className="movie">
+            <span style={isError.show == "true" ? { color: "red", justifyContent: "center" } : { display: "none" }}>No Movie Found !</span>
                 <div className="movie-group">
                     {
                         movieList.map((movie) => {
@@ -22,6 +23,7 @@ const Movie = () => {
                             )
                         })
                     }
+                    
                 </div>
             </section>
         </>

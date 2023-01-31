@@ -48,6 +48,9 @@
 .search input:focus {
     outline: 0;
 }
+.search span{
+    padding: 16px 12px;
+}
 
 @media only screen and (max-width : 700px) {
     .search img {
@@ -226,12 +229,15 @@
 .footer {
     background-color: black;
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 .footer span {
     color: #e50914;
-    padding: 0 12px 12px 12px;
-    font-weight: bold;
+    padding: 0 12px 0 12px;
 }

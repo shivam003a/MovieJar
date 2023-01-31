@@ -21,13 +21,17 @@ const AppProvider = ({ children }) => {
                 setIsLoading(false);
                 setMovieList(data.Search);
                 setTotalPage(parseInt(data.totalResults/10)+1);
-                console.log(url)
+                setIsError({
+                    show: "false",
+                    msg: ""
+                })
             }
             else {
                 setIsError({
                     show: "true",
                     msg: data.Error
                 })
+                setMovieList([]);
             }
         } catch (err) {
             console.log(err)
@@ -43,7 +47,7 @@ const AppProvider = ({ children }) => {
     }, [query, page])
 
     return (
-        <AppContext.Provider value={{ movieList, query, setQuery, page, setPage, totalPage }}>
+        <AppContext.Provider value={{ movieList, query, setQuery, page, setPage, totalPage, isError }}>
             {children}
         </AppContext.Provider>
     )
