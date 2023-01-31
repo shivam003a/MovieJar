@@ -232,7 +232,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: sticky;
     left: 0;
     bottom: 0;
 }

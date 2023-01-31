@@ -9,6 +9,7 @@ const Movie = () => {
         <>
             <section className="movie">
             <span style={isError.show == "true" ? { color: "red", justifyContent: "center" } : { display: "none" }}>No Movie Found !</span>
+            <span style={isError.show == "true" ? { color: "red", justifyContent: "center", fontSize: "108px" } : { display: "none" }}>404</span>
                 <div className="movie-group">
                     {
                         movieList.map((movie) => {
