@@ -111,6 +111,7 @@
     .movie-group{
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         padding: 0 2%;
+        gap: 16px;
     }
 }
 
@@ -267,9 +268,6 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    position: sticky;
-    left: 0;
-    bottom: 0;
 }
 
 .footer span {
