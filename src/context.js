@@ -15,11 +15,8 @@ const AppProvider = ({ children }) => {
 
     const getData = async (url) => {
         try {
-            const res = await fetch(url,{
-                referrerPolicy : "unsafe-url"
-            })
+            const res = await fetch(url)
             const data = await res.json();
-            console.log(data);
             if (data.Response === "True") {
                 setIsLoading(false);
                 setMovieList(data.Search);

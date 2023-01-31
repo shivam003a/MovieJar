@@ -9,11 +9,8 @@ const SingleMovie = () => {
 
     const getDatabyId = async () => {
         try {
-            const res = await fetch(API, {
-                referrerPolicy: "unsafe-url"
-            });
+            const res = await fetch(API);
             const data = await res.json();
-            console.log(data);
             if (data.Response === "True") {
                 setSingleMovie(data);
             }
@@ -28,6 +25,21 @@ const SingleMovie = () => {
     return (
         <>
             <section className="single-movie">
+                <div style={{
+                    content: "",
+                    display: "block",
+                    position: "absolute",
+                    backgroundImage: `url(${Poster})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    width: "100%",
+                    height: "43%",
+                    opacity: 0.4,
+                    top: 0,
+                    left: 0,
+                    zIndex: -2
+                }} />
                 <div className="left">
                     <img src={Poster} alt={Title} />
                 </div>

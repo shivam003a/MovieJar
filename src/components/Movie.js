@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from 'react-router-dom';
 import { AppContext } from "../context";
+import notFound from '../notFound.jpg';
 
 const Movie = () => {
     const { movieList } = useContext(AppContext);
@@ -11,10 +12,12 @@ const Movie = () => {
                     {
                         movieList.map((movie) => {
                             const { Title, Poster, Year, imdbID } = movie;
+                            const subTitle = Title.substring(0, 35);
+
                             return (
                                 <NavLink to={`movies/${imdbID}`} className="movie-item" key={imdbID}>
-                                    <img src={Poster} alt={Title} />
-                                    <span>{Title}<br />({Year})</span>
+                                    <img src={Poster == "N/A" ? notFound : Poster} alt={Title} />
+                                    <span>{Title.length > 35 ? subTitle + "..." : subTitle}<br />({Year})</span>
                                 </NavLink>
                             )
                         })
